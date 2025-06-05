@@ -1,0 +1,1607 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AG Business Consulting - Consultoria Empresarial em Faro</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* Reset e Base */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Montserrat", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+          "Open Sans", "Helvetica Neue", sans-serif;
+      }
+
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+
+      :root {
+        --azul-marinho: #002f6c;
+        --dourado: #c9a14a;
+        --dourado-claro: #e8c97e;
+        --branco: #ffffff;
+        --cinza-escuro: #333333;
+        --cinza-medio: #666666;
+        --cinza-claro: #f8f9fa;
+        --sombra: 0 4px 12px rgba(0, 47, 108, 0.15);
+      }
+
+      body {
+        color: var(--cinza-escuro);
+        line-height: 1.7;
+        background-color: var(--branco);
+        font-weight: 400;
+      }
+
+      /* Tipografia */
+      h1,
+      h2,
+      h3 {
+        color: var(--azul-marinho);
+        margin-bottom: 1.2rem;
+        font-weight: 600;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+        line-height: 1.3;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+        position: relative;
+        padding-bottom: 0.8rem;
+        margin-bottom: 2rem;
+      }
+
+      h2:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 60px;
+        height: 4px;
+        background: var(--dourado);
+        border-radius: 2px;
+      }
+
+      h3 {
+        font-size: 1.3rem;
+      }
+
+      p {
+        margin-bottom: 1.2rem;
+        color: var(--cinza-medio);
+      }
+
+      /* Layout */
+      .container {
+        width: 100%;
+        padding: 0 1.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      /* Header */
+      header {
+        background-color: var(--branco);
+        box-shadow: var(--sombra);
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+        padding: 1rem 0;
+      }
+
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo-img {
+        width: 50px;
+        height: 50px;
+        margin-right: 1rem;
+        background-color: var(--azul-marinho);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--dourado);
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      .logo-text {
+        font-weight: 700;
+        font-size: 1.3rem;
+        color: var(--azul-marinho);
+      }
+
+      .logo-text span {
+        color: var(--dourado);
+        font-weight: 500;
+      }
+
+      .nav-toggle {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--azul-marinho);
+        cursor: pointer;
+      }
+
+      nav {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: var(--branco);
+        box-shadow: var(--sombra);
+        padding: 1.5rem;
+        transform: translateY(-150%);
+        transition: transform 0.3s ease;
+        z-index: 999;
+      }
+
+      nav.active {
+        transform: translateY(0);
+      }
+
+      .nav-list {
+        list-style: none;
+      }
+
+      .nav-item {
+        margin-bottom: 1rem;
+      }
+
+      .nav-link {
+        text-decoration: none;
+        color: var(--azul-marinho);
+        font-weight: 500;
+        transition: color 0.3s;
+        display: block;
+        padding: 0.5rem 0;
+      }
+
+      .nav-link:hover {
+        color: var(--dourado);
+      }
+
+      /* Hero Section */
+      .hero {
+        padding: 8rem 0 4rem;
+        background: linear-gradient(
+            rgba(255, 255, 255, 0.7),
+            rgba(255, 255, 255, 0.7)
+          ),
+          url("https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80")
+            no-repeat center center;
+        background-size: cover;
+        text-align: center;
+      }
+
+      .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .destaque {
+        color: var(--azul-marinho);
+        font-weight: 500;
+        font-size: 1.1rem;
+        margin: 2rem 0;
+        position: relative;
+        padding: 1.5rem;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-left: 4px solid var(--dourado);
+      }
+
+      /* Serviços */
+      .servicos {
+        padding: 4rem 0;
+      }
+
+      .servicos-grid {
+        display: grid;
+        gap: 2rem;
+      }
+
+      .servico-item {
+        background-color: var(--branco);
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: var(--sombra);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-top: 4px solid var(--dourado);
+      }
+
+      .servico-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 47, 108, 0.2);
+      }
+
+      .servico-icon {
+        font-size: 2.5rem;
+        color: var(--dourado);
+        margin-bottom: 1.5rem;
+      }
+
+      /* Benefícios */
+      .beneficios {
+        background-color: var(--azul-marinho);
+        color: var(--branco);
+        padding: 4rem 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .beneficios:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 200px;
+        height: 200px;
+        background-color: rgba(201, 161, 74, 0.1);
+        border-radius: 50%;
+        transform: translate(30%, -30%);
+      }
+
+      .beneficios:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 300px;
+        height: 300px;
+        background-color: rgba(201, 161, 74, 0.1);
+        border-radius: 50%;
+        transform: translate(-30%, 30%);
+      }
+
+      .beneficios h2 {
+        color: var(--branco);
+      }
+
+      .beneficios h2:after {
+        background: var(--branco);
+      }
+
+      .beneficios-list {
+        list-style: none;
+        position: relative;
+        z-index: 1;
+      }
+
+      .beneficio-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 1.5rem;
+        padding: 1.5rem;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        transition: background-color 0.3s;
+      }
+
+      .beneficio-item:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .beneficio-icon {
+        font-size: 1.5rem;
+        color: var(--dourado);
+        margin-right: 1.5rem;
+        flex-shrink: 0;
+      }
+
+      .beneficio-text {
+        flex-grow: 1;
+      }
+
+      .beneficio-text h3 {
+        color: var(--dourado-claro);
+        margin-bottom: 0.5rem;
+      }
+
+      .beneficio-text p {
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 0;
+      }
+
+      /* Localização */
+      .localizacao {
+        padding: 4rem 0;
+        background-color: var(--cinza-claro);
+      }
+
+      .mapa-container {
+        height: 300px;
+        background-color: #eee;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-top: 2rem;
+        box-shadow: var(--sombra);
+        position: relative;
+      }
+
+      .mapa-placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--azul-marinho);
+        color: var(--branco);
+      }
+      /* Estilos para o mapa responsivo */
+      .mapa-container {
+        position: relative;
+        overflow: hidden;
+        padding-top: 75%; /* Proporção 4:3 (ajustável conforme necessidade) */
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        margin-top: 1rem;
+      }
+
+      .mapa-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      /* Opcional: Estilo para dispositivos móveis */
+      @media (max-width: 768px) {
+        .mapa-container {
+          padding-top: 100%; /* Proporção mais quadrada para mobile */
+        }
+      }
+
+      /* Depoimentos */
+      .depoimentos {
+        padding: 4rem 0;
+      }
+
+      .depoimentos h2 {
+        text-align: center;
+      }
+
+      .depoimentos h2:after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .depoimentos-grid {
+        display: grid;
+        gap: 2rem;
+      }
+
+      .depoimento-item {
+        background-color: var(--branco);
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: var(--sombra);
+        position: relative;
+      }
+
+      .depoimento-text {
+        font-style: italic;
+        margin-bottom: 1.5rem;
+        position: relative;
+        padding-left: 1.5rem;
+      }
+
+      .depoimento-text:before {
+        content: '"';
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: 3rem;
+        color: var(--dourado);
+        line-height: 1;
+        opacity: 0.3;
+      }
+
+      .depoimento-author {
+        display: flex;
+        align-items: center;
+      }
+
+      .author-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: var(--cinza-claro);
+        margin-right: 1rem;
+        overflow: hidden;
+      }
+
+      .author-info h4 {
+        color: var(--azul-marinho);
+        margin-bottom: 0.2rem;
+      }
+
+      .author-info p {
+        color: var(--dourado);
+        font-size: 0.9rem;
+        margin-bottom: 0;
+      }
+
+      .rating {
+        color: var(--dourado);
+        margin-top: 0.3rem;
+      }
+
+      /* Contato */
+      .contato {
+        padding: 4rem 0;
+        background-color: var(--cinza-claro);
+      }
+
+      .contato-grid {
+        display: grid;
+        gap: 2rem;
+      }
+
+      .contato-item {
+        text-align: center;
+        padding: 2rem;
+        background-color: var(--branco);
+        border-radius: 8px;
+        box-shadow: var(--sombra);
+        transition: transform 0.3s ease;
+      }
+
+      .contato-item:hover {
+        transform: translateY(-5px);
+      }
+
+      .contato-icon {
+        width: 70px;
+        height: 70px;
+        background-color: var(--azul-marinho);
+        color: var(--dourado);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        font-size: 1.8rem;
+      }
+
+      .contato-item h3 {
+        margin-bottom: 1rem;
+      }
+
+      .contato-item p {
+        margin-bottom: 1.5rem;
+      }
+
+      /* CTA */
+      .cta {
+        background: linear-gradient(
+          135deg,
+          var(--azul-marinho) 0%,
+          #001a3a 100%
+        );
+        color: var(--branco);
+        padding: 4rem 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta:before {
+        content: "";
+        position: absolute;
+        top: -50px;
+        right: -50px;
+        width: 200px;
+        height: 200px;
+        background-color: rgba(201, 161, 74, 0.1);
+        border-radius: 50%;
+      }
+
+      .cta:after {
+        content: "";
+        position: absolute;
+        bottom: -50px;
+        left: -50px;
+        width: 200px;
+        height: 200px;
+        background-color: rgba(201, 161, 74, 0.1);
+        border-radius: 50%;
+      }
+
+      .cta-content {
+        max-width: 600px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+
+      .cta h2 {
+        color: var(--dourado);
+        margin-bottom: 1.5rem;
+      }
+
+      .cta h2:after {
+        display: none;
+      }
+
+      .cta p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+      }
+
+      /* Rodapé */
+      /* Estilos para o Rodapé */
+      footer {
+        background-color: var(--azul-marinho);
+        color: var(--branco);
+        padding: 3rem 0 0;
+        position: relative;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        margin-bottom: 3rem;
+      }
+
+      .footer-col {
+        padding: 0 1rem;
+      }
+
+      .footer-brand {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .footer-logo-wrapper {
+        margin-bottom: 1rem;
+      }
+
+      .footer-logo {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-logo-img {
+        width: 50px;
+        height: 50px;
+        background-color: var(--dourado);
+        color: var(--azul-marinho);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      .footer-logo-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--branco);
+      }
+
+      .footer-logo-text span {
+        color: var(--dourado);
+      }
+
+      .footer-slogan {
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.5;
+      }
+
+      .footer-contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .contact-item i {
+        color: var(--dourado);
+        width: 20px;
+        text-align: center;
+      }
+
+      .social-links {
+        margin-top: 1rem;
+      }
+
+      .social-title {
+        color: var(--dourado);
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+      }
+
+      .social-icons {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .social-link {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--branco);
+        transition: all 0.3s ease;
+      }
+
+      .social-link:hover {
+        background-color: var(--dourado);
+        color: var(--azul-marinho);
+        transform: translateY(-3px);
+      }
+
+      .footer-title {
+        color: var(--dourado);
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        padding-bottom: 0.5rem;
+      }
+
+      .footer-title:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 40px;
+        height: 2px;
+        background-color: var(--dourado);
+      }
+
+      .footer-links {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+
+      .footer-links li a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+
+      .footer-links li a:hover {
+        color: var(--dourado);
+        transform: translateX(5px);
+      }
+
+      .newsletter-form {
+        margin: 1.5rem 0;
+      }
+
+      .form-group {
+        position: relative;
+        display: flex;
+      }
+
+      .form-group input {
+        width: 100%;
+        padding: 0.8rem 1rem;
+        border: none;
+        border-radius: 30px;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: var(--branco);
+      }
+
+      .form-group input::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      .newsletter-btn {
+        position: absolute;
+        right: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: var(--dourado);
+        color: var(--azul-marinho);
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .newsletter-btn:hover {
+        background-color: var(--branco);
+      }
+
+      .business-hours {
+        margin-top: 2rem;
+      }
+
+      .hours-title {
+        color: var(--dourado);
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .business-hours p {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+        margin-bottom: 0.3rem;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .copyright {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.9rem;
+        text-align: center;
+      }
+
+      .legal-links {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .legal-links a {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.85rem;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .legal-links a:hover {
+        color: var(--dourado);
+      }
+
+      .legal-links span {
+        color: rgba(255, 255, 255, 0.3);
+      }
+
+      /* Responsividade */
+      @media (min-width: 768px) {
+        .footer-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (min-width: 992px) {
+        .footer-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+
+        .footer-bottom {
+          flex-direction: row;
+          justify-content: space-between;
+        }
+      }
+
+      /* Botões */
+      .btn {
+        display: inline-block;
+        background-color: var(--dourado);
+        color: var(--azul-marinho);
+        padding: 0.9rem 2rem;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 600;
+        margin-top: 1rem;
+        transition: all 0.3s ease;
+        border: 2px solid var(--dourado);
+        text-align: center;
+      }
+
+      .btn:hover {
+        background-color: transparent;
+        color: var(--dourado);
+      }
+
+      .btn-outline {
+        background-color: transparent;
+        color: var(--dourado);
+        border: 2px solid var(--dourado);
+      }
+
+      .btn-outline:hover {
+        background-color: var(--dourado);
+        color: var(--azul-marinho);
+      }
+
+      .btn-block {
+        display: block;
+        width: 100%;
+      }
+
+      /* Media Queries para Tablet */
+      @media (min-width: 768px) {
+        .nav-toggle {
+          display: none;
+        }
+
+        nav {
+          position: static;
+          transform: none;
+          width: auto;
+          background: transparent;
+          box-shadow: none;
+          padding: 0;
+        }
+
+        .nav-list {
+          display: flex;
+          gap: 1.5rem;
+        }
+
+        .nav-item {
+          margin-bottom: 0;
+        }
+
+        .hero {
+          padding: 10rem 0 6rem;
+        }
+
+        .servicos-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .depoimentos-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .contato-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .footer-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      /* Media Queries para Desktop */
+      @media (min-width: 992px) {
+        .hero {
+          padding: 12rem 0 8rem;
+        }
+
+        h1 {
+          font-size: 2.8rem;
+        }
+
+        .servicos-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .beneficio-item {
+          padding: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Cabeçalho -->
+    <header>
+      <div class="container header-container">
+        <div class="logo">
+          <div class="logo-img">AG</div>
+          <div class="logo-text">Anabela <span>Gago</span></div>
+        </div>
+
+        <button class="nav-toggle" id="navToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <nav id="mainNav">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="#inicio" class="nav-link">Início</a>
+            </li>
+            <li class="nav-item">
+              <a href="#servicos" class="nav-link">Serviços</a>
+            </li>
+            <li class="nav-item">
+              <a href="#sobre" class="nav-link">Sobre</a>
+            </li>
+            <li class="nav-item">
+              <a href="#depoimentos" class="nav-link">Depoimentos</a>
+            </li>
+            <li class="nav-item">
+              <a href="#contato" class="nav-link">Contato</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Transformamos desafios em oportunidades de negócio</h1>
+          <p class="destaque">
+            Somos uma empresa de consultoria empresarial sediada em Faro,
+            Portugal, com uma missão clara: simplificar a vida de quem
+            empreende.
+          </p>
+          <p>
+            Seja para abrir uma empresa, organizar a contabilidade ou otimizar a
+            sua gestão fiscal, estamos ao seu lado — oferecendo um atendimento
+            personalizado, transparente e orientado para resultados.
+          </p>
+          <div
+            style="
+              display: flex;
+              gap: 1rem;
+              justify-content: center;
+              flex-wrap: wrap;
+            "
+          >
+            <a href="#contato" class="btn">Fale Conosco</a>
+            <a href="#servicos" class="btn btn-outline">Nossos Serviços</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Serviços -->
+    <section class="servicos" id="servicos">
+      <div class="container">
+        <h2>Nossos Serviços</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem">
+          Oferecemos soluções completas para sua empresa, desde a abertura até a
+          gestão diária, com a qualidade e profissionalismo que nos distinguem.
+        </p>
+
+        <div class="servicos-grid">
+          <div class="servico-item">
+            <div class="servico-icon">
+              <i class="fas fa-building"></i>
+            </div>
+            <h3>Abertura de Empresas</h3>
+            <p>
+              Simplificamos todo o processo de legalização da sua empresa em
+              Portugal, desde o registo inicial até as licenças necessárias.
+            </p>
+          </div>
+
+          <div class="servico-item">
+            <div class="servico-icon">
+              <i class="fas fa-calculator"></i>
+            </div>
+            <h3>Contabilidade e Gestão Financeira</h3>
+            <p>
+              Organização, clareza e controle total sobre as finanças do seu
+              negócio, com relatórios personalizados e acompanhamento próximo.
+            </p>
+          </div>
+
+          <div class="servico-item">
+            <div class="servico-icon">
+              <i class="fas fa-file-invoice-dollar"></i>
+            </div>
+            <h3>Consultoria Fiscal e Tributária</h3>
+            <p>
+              Planeamento inteligente para você pagar apenas o que é justo,
+              otimizando sua carga fiscal dentro da legalidade.
+            </p>
+          </div>
+
+          <div class="servico-item">
+            <div class="servico-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Consultoria Empresarial Estratégica</h3>
+            <p>
+              Acompanhamento contínuo para crescimento e escalabilidade, com
+              planos de ação personalizados para seu negócio.
+            </p>
+          </div>
+
+          <div class="servico-item">
+            <div class="servico-icon">
+              <i class="fas fa-globe-europe"></i>
+            </div>
+            <h3>Apoio a Estrangeiros em Portugal</h3>
+            <p>
+              Facilitamos a abertura e gestão de negócios para quem está
+              iniciando uma nova vida em Portugal, com suporte multilingue.
+            </p>
+          </div>
+
+          <div class="servico-item">
+            <div class="servico-icon">
+              <i class="fas fa-handshake"></i>
+            </div>
+            <h3>Assessoria Personalizada</h3>
+            <p>
+              Soluções sob medida para suas necessidades específicas, com um
+              consultor dedicado para acompanhar seu caso.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre -->
+    <section class="beneficios" id="sobre">
+      <div class="container">
+        <h2>Por Que Escolher a AG Business Consulting?</h2>
+
+        <div class="beneficios-list">
+          <div class="beneficio-item">
+            <div class="beneficio-icon">
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="beneficio-text">
+              <h3>Excelência Comprovada</h3>
+              <p>
+                Mais de 140 avaliações 5 estrelas no Google comprovam a
+                qualidade do nosso trabalho e a satisfação dos nossos clientes.
+              </p>
+            </div>
+          </div>
+
+          <div class="beneficio-item">
+            <div class="beneficio-icon">
+              <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="beneficio-text">
+              <h3>Atendimento Personalizado</h3>
+              <p>
+                Cada cliente é único, por isso oferecemos um atendimento
+                humanizado e adaptado às suas necessidades específicas.
+              </p>
+            </div>
+          </div>
+
+          <div class="beneficio-item">
+            <div class="beneficio-icon">
+              <i class="fas fa-eye"></i>
+            </div>
+            <div class="beneficio-text">
+              <h3>Transparência Total</h3>
+              <p>
+                Clareza em cada etapa do processo, sem surpresas ou custos
+                escondidos. Você sempre saberá exatamente o que está
+                acontecendo.
+              </p>
+            </div>
+          </div>
+
+          <div class="beneficio-item">
+            <div class="beneficio-icon">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+            <div class="beneficio-text">
+              <h3>Foco em Soluções</h3>
+              <p>
+                Não nos concentramos nos problemas, mas sim nas melhores
+                soluções para fazer seu negócio crescer e prosperar.
+              </p>
+            </div>
+          </div>
+
+          <div class="beneficio-item">
+            <div class="beneficio-icon">
+              <i class="fas fa-language"></i>
+            </div>
+            <div class="beneficio-text">
+              <h3>Multilíngue</h3>
+              <p>
+                Atendimento em Português, Inglês e Espanhol para garantir que
+                não haja barreiras na comunicação.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Localização -->
+    <section class="localizacao">
+      <div class="container">
+        <h2>Onde Estamos</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 1rem">
+          Localizados no coração de Faro, atendemos presencialmente e online
+          para todo o território português.
+        </p>
+
+        <div class="mapa-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12742.739065412685!2d-7.9263465!3d37.0173161!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0553d49fe371b3%3A0x619361255835f51d!2sAnabela%20Gago%20-%20Business%20Consulting!5e0!3m2!1spt-BR!2sbr!4v1749137927347!5m2!1spt-BR!2sbr"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          >
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section class="depoimentos" id="depoimentos">
+      <div class="container">
+        <h2>O Que Dizem Nossos Clientes</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem">
+          A satisfação dos nossos clientes é o nosso maior orgulho. Veja alguns
+          depoimentos reais.
+        </p>
+
+        <div class="depoimentos-grid">
+          <div class="depoimento-item">
+            <div class="depoimento-text">
+              A AG Business Consulting foi fundamental para a abertura da minha
+              empresa em Portugal. Atendimento impecável e super profissional.
+              Recomendo a todos que precisam de ajuda para empreender no país.
+            </div>
+            <div class="depoimento-author">
+              <div class="author-avatar">
+                <i
+                  class="fas fa-user"
+                  style="
+                    font-size: 1.5rem;
+                    color: var(--cinza-medio);
+                    line-height: 50px;
+                    text-align: center;
+                    width: 100%;
+                  "
+                ></i>
+              </div>
+              <div class="author-info">
+                <h4>Carlos Mendes</h4>
+                <p>Restaurante Sabores do Algarve</p>
+                <div class="rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="depoimento-item">
+            <div class="depoimento-text">
+              Como estrangeiro, tinha muitas dúvidas sobre como abrir meu
+              negócio em Portugal. A Anabela me guiou em cada passo, sempre com
+              paciência e competência. Hoje minha loja está funcionando
+              perfeitamente!
+            </div>
+            <div class="depoimento-author">
+              <div class="author-avatar">
+                <i
+                  class="fas fa-user"
+                  style="
+                    font-size: 1.5rem;
+                    color: var(--cinza-medio);
+                    line-height: 50px;
+                    text-align: center;
+                    width: 100%;
+                  "
+                ></i>
+              </div>
+              <div class="author-info">
+                <h4>Sophie Laurent</h4>
+                <p>Boutique Parisienne</p>
+                <div class="rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="depoimento-item">
+            <div class="depoimento-text">
+              A consultoria fiscal da AG fez minha empresa economizar milhares
+              de euros em impostos. O investimento no serviço se pagou muitas
+              vezes. Profissionais altamente qualificados!
+            </div>
+            <div class="depoimento-author">
+              <div class="author-avatar">
+                <i
+                  class="fas fa-user"
+                  style="
+                    font-size: 1.5rem;
+                    color: var(--cinza-medio);
+                    line-height: 50px;
+                    text-align: center;
+                    width: 100%;
+                  "
+                ></i>
+              </div>
+              <div class="author-info">
+                <h4>Miguel Silva</h4>
+                <p>TechSolutions Lda</p>
+                <div class="rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="depoimento-item">
+            <div class="depoimento-text">
+              Depois de anos com problemas na gestão financeira da minha
+              empresa, a AG organizou tudo em poucas semanas. Finalmente tenho
+              clareza sobre meus números e posso tomar decisões com segurança.
+            </div>
+            <div class="depoimento-author">
+              <div class="author-avatar">
+                <i
+                  class="fas fa-user"
+                  style="
+                    font-size: 1.5rem;
+                    color: var(--cinza-medio);
+                    line-height: 50px;
+                    text-align: center;
+                    width: 100%;
+                  "
+                ></i>
+              </div>
+              <div class="author-info">
+                <h4>Ana Rodrigues</h4>
+                <p>Salão Belle Époque</p>
+                <div class="rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section class="contato" id="contato">
+      <div class="container">
+        <h2>Fale Conosco Agora</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem">
+          Estamos prontos para ajudar seu negócio a decolar. Entre em contato
+          por qualquer um dos canais abaixo.
+        </p>
+
+        <div class="contato-grid">
+          <div class="contato-item">
+            <div class="contato-icon">
+              <i class="fab fa-whatsapp"></i>
+            </div>
+            <h3>WhatsApp</h3>
+            <p>Respostas rápidas e diretas</p>
+            <a href="https://wa.me/351XXXXXXXXX" class="btn btn-block"
+              >Enviar Mensagem</a
+            >
+          </div>
+
+          <div class="contato-item">
+            <div class="contato-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <h3>Email</h3>
+            <p>Para consultas detalhadas</p>
+            <a
+              href="mailto:contato@agbusinessconsulting.com"
+              class="btn btn-block"
+              >Enviar Email</a
+            >
+          </div>
+
+          <div class="contato-item">
+            <div class="contato-icon">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <h3>Telefone</h3>
+            <p>Atendimento personalizado</p>
+            <a href="tel:+351XXXXXXXXX" class="btn btn-block">Ligar Agora</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Pronto para Transformar seu Negócio?</h2>
+          <p>👉 Simples. Rápido. Seguro.<br />O seu sucesso começa aqui.</p>
+          <div
+            style="
+              display: flex;
+              gap: 1rem;
+              justify-content: center;
+              flex-wrap: wrap;
+            "
+          >
+            <a href="#contato" class="btn">Fale Conosco</a>
+            <a href="#servicos" class="btn btn-outline"
+              >Conheça Nossos Serviços</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <!-- Coluna 1 - Logo e Redes Sociais -->
+          <div class="footer-col footer-brand">
+            <div class="footer-logo-wrapper">
+              <div class="footer-logo">
+                <div class="footer-logo-img">AG</div>
+                <div class="footer-logo-text">Anabela <span>Gago</span></div>
+              </div>
+              <p class="footer-slogan">
+                "Cuidamos do seu negócio para que você cuide dos seus sonhos."
+              </p>
+            </div>
+
+            <div class="footer-contact-info">
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Faro, Portugal</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <span>+351 XXX XXX XXX</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>contato@agbusiness.pt</span>
+              </div>
+            </div>
+
+            <div class="social-links">
+              <h4 class="social-title">Siga-nos</h4>
+              <div class="social-icons">
+                <a
+                  href="https://www.facebook.com/AGBusinessConsulting/"
+                  class="social-link"
+                  target="_blank"
+                  aria-label="Facebook"
+                >
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a
+                  href="#"
+                  class="social-link"
+                  target="_blank"
+                  aria-label="LinkedIn"
+                >
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a
+                  href="#"
+                  class="social-link"
+                  target="_blank"
+                  aria-label="Instagram"
+                >
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coluna 2 - Serviços -->
+          <div class="footer-col footer-services">
+            <h3 class="footer-title">Nossos Serviços</h3>
+            <ul class="footer-links">
+              <li>
+                <a href="#servicos" class="footer-link">Abertura de Empresas</a>
+              </li>
+              <li>
+                <a href="#servicos" class="footer-link"
+                  >Contabilidade Integral</a
+                >
+              </li>
+              <li>
+                <a href="#servicos" class="footer-link">Consultoria Fiscal</a>
+              </li>
+              <li>
+                <a href="#servicos" class="footer-link">Gestão Financeira</a>
+              </li>
+              <li>
+                <a href="#servicos" class="footer-link">Apoio a Estrangeiros</a>
+              </li>
+              <li>
+                <a href="#servicos" class="footer-link"
+                  >Consultoria Estratégica</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Coluna 3 - Links Úteis -->
+          <div class="footer-col footer-quicklinks">
+            <h3 class="footer-title">Links Rápidos</h3>
+            <ul class="footer-links">
+              <li><a href="#inicio" class="footer-link">Página Inicial</a></li>
+              <li><a href="#sobre" class="footer-link">Sobre Nós</a></li>
+              <li>
+                <a href="#depoimentos" class="footer-link"
+                  >Clientes Satisfeitos</a
+                >
+              </li>
+              <li><a href="#contato" class="footer-link">Fale Conosco</a></li>
+              <li><a href="#" class="footer-link">Blog</a></li>
+              <li><a href="#" class="footer-link">FAQ</a></li>
+            </ul>
+          </div>
+
+          <!-- Coluna 4 - Newsletter -->
+          <div class="footer-col footer-newsletter">
+            <h3 class="footer-title">Receba Nossas Dicas</h3>
+            <p class="newsletter-desc">
+              Inscreva-se para receber insights valiosos sobre gestão
+              empresarial em Portugal.
+            </p>
+            <form class="newsletter-form">
+              <div class="form-group">
+                <input type="email" placeholder="Seu melhor email" required />
+                <button type="submit" class="newsletter-btn">
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+              </div>
+            </form>
+            <div class="business-hours">
+              <h4 class="hours-title">Horário de Atendimento</h4>
+              <p>Segunda a Sexta: 9h00 - 18h00</p>
+              <p>Sábado: 10h00 - 13h00</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Copyright e Links Legais -->
+        <div class="footer-bottom">
+          <div class="copyright">
+            <p>
+              &copy; 2023 AG Business Consulting. Todos os direitos reservados.
+            </p>
+          </div>
+          <div class="legal-links">
+            <a href="#">Política de Privacidade</a>
+            <span>|</span>
+            <a href="#">Termos de Serviço</a>
+            <span>|</span>
+            <a href="#">Mapa do Site</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      // Menu mobile toggle
+      const navToggle = document.getElementById("navToggle");
+      const mainNav = document.getElementById("mainNav");
+
+      navToggle.addEventListener("click", function () {
+        mainNav.classList.toggle("active");
+
+        // Altera o ícone
+        const icon = this.querySelector("i");
+        if (mainNav.classList.contains("active")) {
+          icon.classList.remove("fa-bars");
+          icon.classList.add("fa-times");
+        } else {
+          icon.classList.remove("fa-times");
+          icon.classList.add("fa-bars");
+        }
+      });
+
+      // Fecha o menu quando um link é clicado (para mobile)
+      const navLinks = document.querySelectorAll(".nav-link");
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          if (mainNav.classList.contains("active")) {
+            mainNav.classList.remove("active");
+            navToggle.querySelector("i").classList.remove("fa-times");
+            navToggle.querySelector("i").classList.add("fa-bars");
+          }
+        });
+      });
+
+      // Scroll suave para âncoras
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Animação ao scroll
+      const animateOnScroll = () => {
+        const elements = document.querySelectorAll(
+          ".servico-item, .beneficio-item, .depoimento-item, .contato-item"
+        );
+
+        elements.forEach((element) => {
+          const elementPosition = element.getBoundingClientRect().top;
+          const screenPosition = window.innerHeight / 1.2;
+
+          if (elementPosition < screenPosition) {
+            element.style.opacity = "1";
+            element.style.transform = "translateY(0)";
+          }
+        });
+      };
+
+      // Adiciona opacidade inicial para animação
+      document
+        .querySelectorAll(
+          ".servico-item, .beneficio-item, .depoimento-item, .contato-item"
+        )
+        .forEach((element) => {
+          element.style.opacity = "0";
+          element.style.transform = "translateY(20px)";
+          element.style.transition = "all 0.6s ease";
+        });
+
+      window.addEventListener("load", animateOnScroll);
+      window.addEventListener("scroll", animateOnScroll);
+    </script>
+  </body>
+</html>
